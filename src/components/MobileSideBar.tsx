@@ -1,5 +1,5 @@
 "use client";
-import { imagePlaceHolder, navItems } from "@/constants";
+import { navItems } from "@/constants";
 import {
   Sheet,
   SheetContent,
@@ -74,7 +74,7 @@ function MobileSideBar({
           </div>
           <Separator className="my-2  border rounded-4xl" />
           <ul className="space-y-2">
-            {navItems.map(({ name, icon, url }) => {
+            {navItems.map(({ name, Icon, url }) => {
               const isActive = pathname === url;
               return (
                 <li
@@ -90,18 +90,7 @@ function MobileSideBar({
                       "flex items-center gap-3 px-4 py-3 font-medium"
                     )}
                   >
-                    <Image
-                      src={icon}
-                      alt={name}
-                      width={24}
-                      height={24}
-                      className={cn(
-                        "object-contain",
-                        isActive
-                          ? "filter invert brightness-0"
-                          : "fill-amber-900"
-                      )}
-                    />
+                    <Icon className="text-red-400" size={30} />
                     <SheetTitle
                       className={isActive ? "text-white" : "text-gray-700"}
                     >

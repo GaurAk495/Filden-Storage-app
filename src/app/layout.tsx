@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "Fileden is a smart, secure storage app to organize, store, and access your files anytime, anywhere.",
 };
 
-const poppins = Poppins({ weight: "500" });
+const poppins = Poppins({ weight: "500", subsets: ["latin"] });
 
 export default async function RootLayout({
   children,

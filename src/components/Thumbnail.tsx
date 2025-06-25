@@ -31,9 +31,10 @@ export function UploadToastThumbanil({ file }: { file: File }) {
   const extension = getExtension(file.name);
   const Icon = extension ? getIcon(extension) : FileIcon;
   return isImage ? (
-    <img
+    <Image
       src={previewUrl}
       alt={file.name}
+      sizes="30"
       className="w-14 h-14 object-cover rounded-md border"
     />
   ) : (

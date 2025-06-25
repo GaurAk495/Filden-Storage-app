@@ -14,10 +14,12 @@ function HeaderSearch() {
   const [results, setResults] = useState<Models.Document[] | null>([]);
   const debouncedSearchTerm = useDebounce(search, 400);
   const router = useRouter();
+
   useEffect(() => {
     const fetchSearches = async () => {
       const results = await getFiles({ query: debouncedSearchTerm });
-      setResults(results);
+
+      setResults(results?.documents ?? []); // fallback to empty array if null
     };
 
     // Optional: only fetch if slug exists and/or search is not empty

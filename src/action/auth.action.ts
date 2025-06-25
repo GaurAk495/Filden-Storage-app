@@ -126,7 +126,7 @@ export async function login({ email }: { email: string }) {
     const existingUser = await getUserByEmail(email);
     if (!existingUser) throw Error("User Doesn't exist please Sign Up first");
     const accountId = await sendOTPemail(email);
-    return parseStringfy({ accountId });
+    return { accountId };
   } catch (error) {
     console.log(error instanceof Error ? error.message : "Login error");
     throw Error(error instanceof Error ? error.message : "Login error");

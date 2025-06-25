@@ -14,6 +14,7 @@ import { uploadFiles } from "@/action/fileStorage.action";
 import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
 import UploadToast from "./UploadToast";
+import Image from "next/image";
 
 function FileUpload({
   account_Id,
@@ -71,7 +72,7 @@ function FileUpload({
 
     // Step 1: Show fake upload toasts
     const toasts = files.map((file) => {
-      const id = toast.custom((t) => <UploadToast file={file} />, {
+      const id = toast.custom(() => <UploadToast file={file} />, {
         duration: Infinity,
       });
       return { id };
@@ -137,9 +138,11 @@ function FileUpload({
                 >
                   {/* Thumbnail or Icon */}
                   {isImage ? (
-                    <img
+                    <Image
                       src={previewUrl}
                       alt={file.name}
+                      width={30}
+                      height={30}
                       className="w-14 h-14 object-cover rounded-md border"
                     />
                   ) : (

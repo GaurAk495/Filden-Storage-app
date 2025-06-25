@@ -45,7 +45,7 @@ function OTPModal({ email, accountId }: { email: string; accountId: string }) {
 
           <h1 className="text-2xl">Enter OTP</h1>
           <p className="mb-8 text-sm">
-            We've sent a email to{" "}
+            We&apos;ve sent a email to{" "}
             <span className="text-[#ff7b7d]">{email}</span>
           </p>
           <InputOTP
@@ -98,7 +98,7 @@ function OTPModal({ email, accountId }: { email: string; accountId: string }) {
             )}
           </Button>
           <p className="text-[14px] mt-5">
-            Didn't get the code?{" "}
+            Didn&apos;t get the code?{" "}
             <span
               className="text-[#ff7b7d] hover:underline"
               onClick={handleOnResendCode}

@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import MobileSideBar from "@/components/MobileSideBar";
 import SideBar from "@/components/SideBar";
 import StoreWrapper from "@/store/StoreWrapper";
-import { useUserStore } from "@/store/userStore";
 import { redirect } from "next/navigation";
 import React from "react";
 

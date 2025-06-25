@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
-import { createAccount, getLoggedInUser, login } from "@/action/auth.action";
+import { createAccount, login } from "@/action/auth.action";
 import OTPModal from "./OTPModal";
 
 function cn(...classes: (string | false | null | undefined)[]) {

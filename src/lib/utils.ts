@@ -102,7 +102,7 @@ export function getCategoryFromType(type: string): string {
   return "other";
 }
 
-export function constructURL({ uploadedFile }: { uploadedFile: any }) {
+export function constructURL({ uploadedFile }: { uploadedFile: Models.File }) {
   return `${appWriteconfig.endpointId}/storage/buckets/${appWriteconfig.storageBucketId}/files/${uploadedFile.$id}/view?project=${appWriteconfig.projectId}`;
 }
 

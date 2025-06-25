@@ -257,9 +257,13 @@ export async function shareFile({
     const user = await getLoggedInUser();
     const loggedUserId = user?.userDatabase.$id;
     const client = await createSessionClient();
-    if (!client) return null;
+    if (!client)
+      return {
+        success: false,
+        message: "no Client found",
+      };
 
-    const { account, database } = client;
+    const { database } = client;
     // Step 1: Get current document
     const document = await database.getDocument(
       appWriteconfig.databaseId,
@@ -307,9 +311,13 @@ export async function removeShareFile({
 }) {
   try {
     const client = await createSessionClient();
-    if (!client) return null;
+    if (!client)
+      return {
+        success: false,
+        message: "no Client found",
+      };
 
-    const { account, database } = client;
+    const { database } = client;
     // Step 1: Get current document
     const document = await database.getDocument(
       appWriteconfig.databaseId,
@@ -358,9 +366,13 @@ export async function deleteFile({
 }) {
   try {
     const client = await createSessionClient();
-    if (!client) return null;
+    if (!client)
+      return {
+        success: false,
+        message: "no Client found",
+      };
 
-    const { account, database } = client;
+    const { database } = client;
     await database.deleteDocument(
       appWriteconfig.databaseId,
       appWriteconfig.fileCollectionId,
@@ -387,18 +399,19 @@ export async function deleteFile({
 
 export async function recentFiles() {
   const client = await createSessionClient();
-  if (!client) return null;
+  if (!client) return [];
 
-  const { account, database } = client;
+  const { database } = client;
   const accountId = await getLoggedInUser().then(
     (data) => data?.userAccount.$id
   );
+  if (!accountId) return [];
   const res = await database.listDocuments(
     appWriteconfig.databaseId,
     appWriteconfig.fileCollectionId,
     [
       Query.orderDesc("$createdAt"),
-      Query.equal("account_id", accountId!),
+      Query.equal("account_id", accountId),
       Query.limit(10),
     ]
   );
@@ -408,9 +421,13 @@ export async function recentFiles() {
 
 export async function storageStatistic() {
   const client = await createSessionClient();
-  if (!client) return null;
+  if (!client)
+    return {
+      success: false,
+      message: "No Client Found",
+    };
 
-  const { account, database } = client;
+  const { database } = client;
   const user = await getLoggedInUser();
   const { userAccount } = user!;
   const userAccountId = userAccount.$id;

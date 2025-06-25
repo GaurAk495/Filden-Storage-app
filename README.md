@@ -3,6 +3,7 @@
 A modern file storage and management web application built with Next.js, TypeScript, Tailwind CSS, and Appwrite.
 
 ## Features
+
 - User authentication (sign up, sign in, OTP)
 - File upload, download, and preview
 - File type icons and thumbnails
@@ -13,6 +14,7 @@ A modern file storage and management web application built with Next.js, TypeScr
 - Appwrite integration for backend services
 
 ## Tech Stack
+
 - [Next.js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
@@ -21,6 +23,7 @@ A modern file storage and management web application built with Next.js, TypeScr
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js (v18+ recommended)
 - pnpm (or npm/yarn)
 - Appwrite instance (self-hosted or cloud)
@@ -39,6 +42,7 @@ A modern file storage and management web application built with Next.js, TypeScr
    npm install
    ```
 3. Configure Appwrite:
+
    - Update `src/lib/appwrite/env.ts` with your Appwrite endpoint and project credentials.
 
 4. Run the development server:
@@ -50,6 +54,7 @@ A modern file storage and management web application built with Next.js, TypeScr
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Project Structure
+
 - `src/app/` — Next.js app directory (routing, layouts, pages)
 - `src/components/` — UI and functional components
 - `src/action/` — Server actions (auth, file storage)
@@ -58,10 +63,12 @@ A modern file storage and management web application built with Next.js, TypeScr
 - `public/assets/` — Icons and images
 
 ## Customization
+
 - Update branding assets in `public/assets/icons/` and `public/assets/images/`.
 - Modify Tailwind config in `tailwind.config.ts`.
 
 ## License
+
 MIT
 
 ---
